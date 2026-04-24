@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vishnu Vardhan | 48-Hour Conversion Sprint</title>
+  <meta name="description" content="A 48-hour conversion sprint for D2C brands turning paid traffic into a tighter conversion path.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #fffefa;
+      --surface-2: #efeee7;
+      --ink: #141412;
+      --muted: #66645d;
+      --soft: #8a877d;
+      --line: #dedbd1;
+      --line-strong: #c8c2b6;
+      --accent: #e24a2f;
+      --accent-dark: #9d2f1f;
+      --green: #2e7d52;
+      --blue: #315fc7;
+      --shadow: 0 18px 54px rgba(20, 20, 18, 0.09);
+      --shadow-tight: 0 10px 28px rgba(20, 20, 18, 0.08);
+      --shadow-hover: 0 22px 46px rgba(20, 20, 18, 0.12);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --max: 1120px;
+      --pad: clamp(1rem, 3vw, 1.75rem);
+      --radius: 8px;
+      --radius-sm: 6px;
+      --xs: 0.78rem;
+      --sm: clamp(0.9rem, 0.86rem + 0.16vw, 0.98rem);
+      --base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+      --lg: clamp(1.2rem, 1.06rem + 0.52vw, 1.44rem);
+      --xl: clamp(1.62rem, 1.2rem + 1.42vw, 2.45rem);
+      --hero: clamp(2.15rem, 1.3rem + 2.65vw, 3.85rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.45;
+      background:
+        radial-gradient(620px 320px at 12% -8%, rgba(226, 74, 47, 0.08), transparent 72%),
+        radial-gradient(540px 300px at 88% 10%, rgba(49, 95, 199, 0.08), transparent 70%),
+        linear-gradient(90deg, rgba(20, 20, 18, 0.035) 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(180deg, #fbfaf5 0%, var(--bg) 54%, #ece9e1 100%);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - var(--pad) * 2));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(4rem, 6.4vw, 6rem) 0;
+    }
+
+    .section + .section { border-top: 1px solid rgba(20, 20, 18, 0.08); }
+
+    #proof {
+      padding-block: clamp(3.8rem, 5.4vw, 5.25rem);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--accent-dark);
+      font-size: var(--xs);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .hero-title {
+      max-width: 14.5ch;
+      margin: 0 0 0.95rem;
+      font-size: var(--hero);
+      line-height: 1.02;
+    }
+
+    .section-title {
+      max-width: 18ch;
+      margin: 0 0 1rem;
+      font-size: var(--xl);
+      line-height: 1.04;
+    }
+
+    .copy {
+      max-width: 48ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: var(--base);
+    }
+
+    .copy + .copy { margin-top: 0.55rem; }
+
+    .support {
+      max-width: 43ch;
+      margin: 1rem 0 1.45rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 700;
+      line-height: 1.18;
+      text-wrap: balance;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 0.78rem 1rem;
+      font-size: var(--sm);
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 140ms var(--ease-out), box-shadow 180ms var(--ease-out), background 140ms ease, border-color 140ms ease;
+      will-change: transform;
+    }
+
+    .btn svg { width: 0.95rem; height: 0.95rem; transition: transform 160ms var(--ease-out); }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-tight); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn:active { transform: scale(0.97); }
+    .btn:focus-visible, .nav-link:focus-visible { outline: 3px solid rgba(226, 74, 47, 0.25); outline-offset: 3px; }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #24241f, var(--ink));
+      color: var(--surface);
+      box-shadow: 0 12px 24px rgba(20, 20, 18, 0.16);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover { border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .section .wrap > .btn,
+    .two-col .btn,
+    .proof-copy > .btn {
+      margin-top: 1.35rem;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(20, 20, 18, 0.09);
+      background: rgba(246, 244, 239, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand small {
+      color: var(--soft);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.05rem;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 700;
+      transition: color 140ms ease;
+    }
+
+    .nav-link:hover { color: var(--ink); }
+
+    .hero { padding-top: clamp(3.5rem, 5.8vw, 5rem); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.78fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .hero-lines span { display: block; }
+    .hero-lines span:last-child { color: var(--accent); }
+    .hero-lines span:first-child { color: #262520; }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.1rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 0.34rem 0.62rem;
+      background: rgba(255, 254, 250, 0.7);
+      color: var(--muted);
+      font-size: var(--xs);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .diagnosis-panel {
+      position: relative;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 254, 250, 0.88);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-origin: center;
+    }
+
+    .diagnosis-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.55) 42%, transparent 58%);
+      transform: translateX(-120%);
+      opacity: 0;
+    }
+
+    .js.page-ready .diagnosis-panel::before {
+      animation: panelSweep 900ms var(--ease-out) 520ms both;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.88rem 0.95rem;
+      border-bottom: 1px solid var(--line);
+      font-size: var(--xs);
+      font-weight: 800;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(226, 74, 47, 0.12);
+      animation: statusPulse 2.4s ease-in-out infinite;
+    }
+
+    .panel-body { padding: clamp(1rem, 3vw, 1.35rem); }
+
+    .route {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .route-item {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 58px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem;
+      background: var(--surface);
+      transform-origin: center;
+    }
+
+    .route-num {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      font-weight: 800;
+    }
+
+    .route-title { margin: 0; font-weight: 800; letter-spacing: -0.015em; }
+    .route-copy { margin: 0.12rem 0 0; color: var(--soft); font-size: var(--xs); font-weight: 700; }
+    .route-tag { color: var(--soft); font-size: var(--xs); font-weight: 800; }
+    .route-item.break { border-color: rgba(226, 74, 47, 0.4); background: #fff4f1; }
+    .route-item.break .route-num { background: var(--accent); color: white; }
+    .route-item.fixed { border-color: rgba(46, 125, 82, 0.28); background: #f0faf4; }
+    .route-item.fixed .route-num { background: var(--green); color: white; }
+
+    .panel-foot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      background: rgba(239, 238, 231, 0.55);
+    }
+
+    .panel-stat {
+      padding: 0.9rem;
+      border-right: 1px solid var(--line);
+    }
+
+    .panel-stat:last-child { border-right: 0; }
+    .panel-stat strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.4rem; line-height: 1; letter-spacing: -0.04em; }
+    .panel-stat span { display: block; margin-top: 0.24rem; color: var(--soft); font-size: var(--xs); font-weight: 800; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: clamp(1.7rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .problem-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1.15rem;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 800;
+    }
+
+    .problem-stack li {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.48rem 0.62rem;
+      background: rgba(255, 254, 250, 0.7);
+    }
+
+    .problem-stack .leak {
+      border-color: rgba(226, 74, 47, 0.35);
+      background: #fff4f1;
+      color: var(--accent-dark);
+    }
+
+    .kicker {
+      margin: 1.05rem 0 1.2rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 800;
+      line-height: 1.18;
+      text-wrap: balance;
+    }
+
+    .kicker span { display: block; }
+
+    .diagram-card, .diag-strip, .path-card, .final-mini {
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: clamp(1rem, 2.6vw, 1.35rem);
+      background: rgba(255, 254, 250, 0.8);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .diag-strip { margin-top: 1.35rem; }
+    .path-card { margin-top: 1.35rem; background: rgba(240, 250, 244, 0.72); }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .promise-card {
+      min-height: 126px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      background: var(--surface);
+    }
+
+    .promise-card span {
+      color: var(--soft);
+      font-size: var(--xs);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .promise-card strong {
+      color: var(--ink);
+      font-size: var(--base);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .promise-card.is-gap {
+      border-color: rgba(226, 74, 47, 0.36);
+      background: #fff4f1;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      align-items: stretch;
+    }
+
+    .flow.final-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .flow-step {
+      position: relative;
+      display: grid;
+      align-content: space-between;
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.78rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 800;
+      transform-origin: center;
+    }
+
+    .flow-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .flow-step.is-gap { border-color: rgba(226, 74, 47, 0.36); background: #fff4f1; color: var(--accent-dark); }
+    .flow-step.is-gap .flow-dot { background: var(--accent); color: white; }
+    .flow-step.is-exit { opacity: 0.56; }
+    .flow.fixed .flow-step { border-color: rgba(46, 125, 82, 0.24); }
+    .flow.fixed .flow-dot { background: var(--green); color: white; }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.15rem;
+    }
+
+    .value-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: 1rem;
+      background: var(--surface);
+      box-shadow: 0 1px 0 rgba(20, 20, 18, 0.04);
+      color: var(--ink);
+      line-height: 1.18;
+      transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), border-color 180ms ease;
+    }
+
+    .value-card strong {
+      color: var(--ink);
+      font-size: var(--base);
+      font-weight: 800;
+      line-height: 1.12;
+    }
+
+    .value-card span {
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 600;
+      line-height: 1.28;
+    }
+
+    .value-card:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .proof-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: clamp(1.4rem, 3.2vw, 2.4rem);
+      align-items: start;
+    }
+
+    .proof-copy {
+      max-width: 760px;
+    }
+
+    .authority-card {
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-tight);
+      overflow: hidden;
+    }
+
+    .portrait-frame {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(226, 74, 47, 0.14), rgba(49, 95, 199, 0.12)),
+        var(--surface-2);
+    }
+
+    .portrait-frame::before {
+      content: "VV";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(20, 20, 18, 0.16);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(4rem, 9vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.08em;
+    }
+
+    .portrait-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .portrait-frame img.is-missing { display: none; }
+
+    .authority-body { padding: 0.9rem; }
+    .person-name { margin: 0; font-size: var(--lg); font-weight: 800; letter-spacing: -0.025em; }
+    .person-role { margin: 0.28rem 0 0; color: var(--muted); font-size: var(--sm); font-weight: 600; }
+
+    .experience-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.05rem;
+    }
+
+    .experience-list span {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.38rem 0.7rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: var(--xs);
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .authority-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.75rem; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.15rem;
+    }
+
+    .metric {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: 0.9rem;
+      background: var(--surface);
+      transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), border-color 180ms ease;
+    }
+
+    .metric:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+    }
+
+    .metric span { color: var(--muted); font-size: var(--sm); font-weight: 800; line-height: 1.18; }
+
+    .case-line {
+      max-width: 44ch;
+      margin: 1.25rem 0 1.2rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 800;
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    .final-card {
+      border: 1px solid rgba(20, 20, 18, 0.11);
+      border-radius: var(--radius);
+      padding: clamp(1.15rem, 4vw, 2.7rem);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .final-card .section-title { max-width: 20ch; margin-inline: auto; }
+    .final-card .copy { margin-inline: auto; }
+    .final-mini { width: min(100%, 560px); margin: 0 auto 1.35rem; background: #fff4f1; box-shadow: none; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+    }
+
+    .microcopy {
+      max-width: 50ch;
+      margin: 1rem auto 0;
+      color: var(--soft);
+      font-size: var(--sm);
+      font-weight: 700;
+    }
+
+    .reveal { opacity: 1; transform: none; }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(12px) scale(0.985);
+      transition: opacity 360ms ease, transform 420ms var(--ease-out);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    .js .hero-reveal {
+      opacity: 0;
+      transform: translateY(10px) scale(0.99);
+      transition: opacity 420ms ease, transform 460ms var(--ease-out);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .js.page-ready .hero-reveal { opacity: 1; transform: translateY(0) scale(1); }
+
+    .js .flow-step, .js .route-item { transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease; }
+    .js .flow:not(.is-visible) .flow-step, .js .route:not(.is-visible) .route-item { opacity: 0; }
+    .js .flow-step:hover, .js .route-item:hover { transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-tight); }
+
+    .js .flow.is-visible .flow-step, .js .route.is-visible .route-item {
+      animation: stepIn 360ms var(--ease-out) both;
+      animation-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    .js .flow-step.is-gap .flow-dot, .js .route-item.break .route-num { animation: gapPulse 3.2s ease-in-out infinite; }
+
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes gapPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(226, 74, 47, 0); }
+      50% { box-shadow: 0 0 0 6px rgba(226, 74, 47, 0.14); }
+    }
+
+    @keyframes panelSweep {
+      0% { opacity: 0; transform: translateX(-120%); }
+      18% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(120%); }
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 4px rgba(226, 74, 47, 0.12); }
+      50% { transform: scale(0.92); box-shadow: 0 0 0 7px rgba(226, 74, 47, 0.08); }
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .two-col, .proof-top { grid-template-columns: 1fr; }
+      .diagnosis-panel, .authority-card { max-width: 560px; }
+      .portrait-frame { min-height: 240px; }
+      .value-grid, .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .proof-copy { max-width: 100%; }
+    }
+
+    @media (max-width: 720px) {
+      html { scroll-padding-top: 64px; }
+      .wrap { width: min(var(--max), calc(100% - 1.25rem)); }
+      .nav { min-height: 58px; }
+      .brand small, .nav-link { display: none; }
+      .nav-links { width: 100%; margin-left: 0; justify-content: flex-end; }
+      .topbar .btn { min-height: 38px; padding: 0.62rem 0.78rem; font-size: 0.82rem; white-space: nowrap; }
+      .topbar .btn svg { display: none; }
+      .section { padding: 2.7rem 0; }
+      #proof { padding-block: 2.7rem; }
+      .hero { padding-top: 2.15rem; }
+      .hero-grid, .two-col, .proof-top { gap: 1.25rem; }
+      .hero-title { max-width: 13.5ch; font-size: clamp(2rem, 8vw, 2.65rem); line-height: 1.04; }
+      .section-title { max-width: 16ch; font-size: clamp(1.55rem, 6.8vw, 2.05rem); line-height: 1.08; }
+      .copy { max-width: 100%; font-size: 0.98rem; line-height: 1.5; }
+      .eyebrow { margin-bottom: 0.7rem; }
+      .chip-row { gap: 0.45rem; margin-top: 0.9rem; }
+      .chip { min-height: 28px; padding: 0.3rem 0.52rem; white-space: normal; }
+      .section .wrap > .btn, .two-col .btn, .proof-copy > .btn { margin-top: 1rem; }
+      .section .btn, .final-card .btn { width: 100%; min-height: 44px; }
+      .flow, .flow.final-flow, .promise-grid { grid-template-columns: 1fr; }
+      .diagram-card, .diag-strip, .path-card, .final-mini { padding: 0.85rem; }
+      .diag-strip, .path-card { margin-top: 1rem; }
+      .flow-step { min-height: auto; grid-template-columns: 34px 1fr; align-items: center; align-content: center; gap: 0.65rem; padding: 0.65rem; }
+      .flow-dot { width: 32px; height: 32px; }
+      .promise-grid, .value-grid, .metrics-grid { gap: 0.6rem; }
+      .promise-card { min-height: auto; gap: 0.85rem; padding: 0.8rem; }
+      .promise-card strong { font-size: 0.98rem; }
+      .value-grid { margin-top: 1rem; }
+      .value-card { min-height: auto; gap: 0.4rem; padding: 0.85rem; }
+      .value-card strong { font-size: 0.98rem; }
+      .value-card span { font-size: 0.88rem; line-height: 1.3; }
+      .metrics-grid { margin-top: 1rem; }
+      .metric { min-height: 88px; padding: 0.85rem; gap: 0.75rem; }
+      .metric strong { font-size: clamp(1.55rem, 8vw, 2.15rem); }
+      .metric span { font-size: 0.88rem; }
+      .case-line { margin: 1rem 0; font-size: 1.05rem; }
+      .authority-card { max-width: 100%; }
+      .portrait-frame { min-height: 220px; }
+      .authority-body { padding: 0.85rem; }
+      .person-name { font-size: 1.15rem; }
+      .person-role { font-size: 0.9rem; line-height: 1.35; }
+      .experience-list { gap: 0.4rem; margin-top: 0.75rem; }
+      .experience-list span { min-height: 30px; padding: 0.32rem 0.55rem; white-space: normal; }
+      .final-card { padding: 0.95rem; text-align: left; }
+      .final-mini { margin-bottom: 1rem; }
+      .final-card .section-title, .final-card .copy, .microcopy { margin-left: 0; margin-right: 0; }
+      .cta-row { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0.55rem; margin-top: 1rem; }
+      .cta-row .btn { justify-content: space-between; }
+    }
+
+    @media (max-width: 560px) {
+      .section { padding: 2.35rem 0; }
+      #proof { padding-block: 2.35rem; }
+      .hero { padding-top: 1.85rem; }
+      .hero-title { font-size: clamp(1.9rem, 9.2vw, 2.45rem); }
+      .section-title { font-size: clamp(1.42rem, 7vw, 1.88rem); }
+      .diagnosis-panel { display: none; }
+      .value-grid, .metrics-grid, .panel-foot { grid-template-columns: 1fr; }
+      .panel-stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .panel-stat:last-child { border-bottom: 0; }
+      .problem-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
+      .problem-stack li { min-height: 38px; display: flex; align-items: center; padding: 0.42rem 0.55rem; }
+      .problem-stack .leak { grid-column: 1 / -1; }
+      .portrait-frame { min-height: 190px; }
+      .topbar .btn { max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Primary navigation">
+      <a class="brand brand-mark" href="#hero" aria-label="Home"></a>
+      <div class="nav-links">
+        <a class="nav-link" href="#problem">Problem</a>
+        <a class="nav-link" href="#gap">Gap</a>
+        <a class="nav-link" href="#sprint">Sprint</a>
+        <a class="nav-link" href="#proof">Proof</a>
+        <a class="btn btn-primary js-whatsapp" href="#final-cta" aria-label="Find the gap in my funnel on WhatsApp">
+          Find the gap
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow hero-reveal" style="--delay:40ms">For D2C brands buying traffic</p>
+          <h1 class="hero-title hero-reveal" style="--delay:110ms">
+            <span class="hero-lines">
+              <span>Your ad got clicked,</span>
+              <span>your page lost the sale.</span>
+            </span>
+          </h1>
+          <p class="copy hero-reveal" style="--delay:190ms">Your ad makes a sharp promise. Your page answers generic. That mismatch leaks revenue.</p>
+          <a class="btn btn-primary hero-reveal js-whatsapp" style="--delay:260ms" href="#final-cta" aria-label="Find the gap in my funnel on WhatsApp">
+            Find the gap in my funnel
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <div class="chip-row hero-reveal" style="--delay:320ms" aria-label="Proof highlights">
+            <span class="chip">48-hour sprint</span>
+            <span class="chip">₹20.9L spend managed</span>
+            <span class="chip">4.2x CVR lift</span>
+          </div>
+        </div>
+
+        <aside class="diagnosis-panel hero-reveal" style="--delay:230ms" aria-label="Conversion diagnosis preview">
+          <div class="panel-head"><span>Diagnosis preview</span><span class="status-dot" aria-hidden="true"></span></div>
+          <div class="panel-body">
+            <div class="route" aria-label="Click to conversion path">
+              <div class="route-item" style="--i:1">
+                <span class="route-num">1</span>
+                <div><p class="route-title">Ad</p><p class="route-copy">Specific promise</p></div>
+                <span class="route-tag">Click</span>
+              </div>
+              <div class="route-item break" style="--i:2">
+                <span class="route-num">!</span>
+                <div><p class="route-title">Page</p><p class="route-copy">Message drift</p></div>
+                <span class="route-tag">Leak</span>
+              </div>
+              <div class="route-item fixed" style="--i:3">
+                <span class="route-num">3</span>
+                <div><p class="route-title">Action</p><p class="route-copy">Clear next step</p></div>
+                <span class="route-tag">Fix</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-foot" aria-label="Proof metrics">
+            <div class="panel-stat"><strong>48h</strong><span>turnaround</span></div>
+            <div class="panel-stat"><strong>57%</strong><span>CPL drop</span></div>
+            <div class="panel-stat"><strong>4.2x</strong><span>CVR lift</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="wrap two-col">
+        <div class="reveal">
+          <h2 class="section-title">You keep changing the visible part.</h2>
+          <ul class="problem-stack" aria-label="Common visible fixes">
+            <li>New hook</li>
+            <li>New visual</li>
+            <li>New creator</li>
+            <li>New angle</li>
+            <li class="leak">Same leak</li>
+          </ul>
+          <p class="copy">The click worked. The page changed the story. Trust dropped.</p>
+          <a class="btn btn-secondary js-whatsapp" href="#final-cta" aria-label="Show me where it breaks on WhatsApp">
+            Show me where it breaks
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        </div>
+
+        <div class="diagram-card reveal" style="--delay:100ms" aria-label="Broken buyer journey">
+          <div class="flow broken">
+            <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Click</span></div>
+            <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Interest</span></div>
+            <div class="flow-step is-gap" style="--i:3"><span class="flow-dot">!</span><span>Story shift</span></div>
+            <div class="flow-step is-exit" style="--i:4"><span class="flow-dot">4</span><span>Exit</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gap" class="section">
+      <div class="wrap">
+        <div class="reveal">
+          <h2 class="section-title">They leave when the promise breaks.</h2>
+        </div>
+        <div class="diag-strip reveal" style="--delay:120ms" aria-label="Ad page buyer mismatch">
+          <div class="promise-grid">
+            <article class="promise-card">
+              <span>Your ad says</span>
+              <strong>The specific promise that earned the click.</strong>
+            </article>
+            <article class="promise-card">
+              <span>Your page says</span>
+              <strong>Something different from what the ad promised.</strong>
+            </article>
+            <article class="promise-card is-gap">
+              <span>Buyer thinks</span>
+              <strong>"This isn't what I came for." Gone.</strong>
+            </article>
+          </div>
+        </div>
+        <a class="btn btn-secondary reveal js-whatsapp" style="--delay:210ms" href="#final-cta" aria-label="Fix the mismatch on WhatsApp">
+          Fix the mismatch
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="sprint" class="section">
+      <div class="wrap">
+        <div class="reveal">
+          <h2 class="section-title">One message. One path. No broken handoff.</h2>
+        </div>
+        <div class="path-card reveal" style="--delay:100ms" aria-label="Fixed conversion path">
+          <div class="flow fixed">
+            <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Ad</span></div>
+            <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Message</span></div>
+            <div class="flow-step" style="--i:3"><span class="flow-dot">3</span><span>Page</span></div>
+            <div class="flow-step" style="--i:4"><span class="flow-dot">4</span><span>Action</span></div>
+          </div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal" style="--delay:40ms"><strong>UGC scripts</strong><span>Your creators know exactly what to say.</span></article>
+          <article class="value-card reveal" style="--delay:90ms"><strong>Ads, upload-ready</strong><span>Test tomorrow. Not next week.</span></article>
+          <article class="value-card reveal" style="--delay:140ms"><strong>Landing page copy</strong><span>Same hook as the ad. Story doesn't break.</span></article>
+          <article class="value-card reveal" style="--delay:190ms"><strong>Loom walkthrough</strong><span>Why I built what I built. No mystery.</span></article>
+        </div>
+        <a class="btn btn-primary reveal js-whatsapp" style="--delay:240ms; margin-top:1.35rem" href="#final-cta" aria-label="Build my conversion path on WhatsApp">
+          Build my conversion path
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="wrap">
+        <div class="proof-top">
+          <div class="proof-copy reveal">
+            <h2 class="section-title">Conversion thinking, not copy docs.</h2>
+            <p class="copy">I diagnose the click, doubt, page flow, and metric that proves the fix.</p>
+
+            <div class="metrics-grid" aria-label="Performance proof metrics">
+              <article class="metric reveal" style="--delay:30ms"><strong>57%</strong><span>CPL drop</span></article>
+              <article class="metric reveal" style="--delay:70ms"><strong>4.2x</strong><span>CVR lift</span></article>
+              <article class="metric reveal" style="--delay:110ms"><strong>3,549</strong><span>leads generated</span></article>
+            </div>
+
+            <p class="case-line reveal" style="--delay:280ms">₹2,403 CPL -> ₹1,132 after the path fix.</p>
+            <a class="btn btn-secondary reveal js-whatsapp" style="--delay:320ms" href="#final-cta" aria-label="See what I would fix on WhatsApp">
+              See what I would fix
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </div>
+
+          <aside class="authority-card reveal" style="--delay:120ms" aria-label="Vishnu Vardhan authority card">
+            <div class="portrait-frame"><img src="vishnu-photo.png" alt="Vishnu Vardhan"></div>
+            <div class="authority-body">
+              <p class="person-name">Vishnu Vardhan</p>
+              <p class="person-role">Performance marketer for paid funnel diagnosis and landing page conversion.</p>
+              <div class="experience-list" aria-label="Experience highlights">
+                <span>₹20.9L ad spend experience</span>
+                <span>Managed 9 campaigns</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="final-cta" class="section">
+      <div class="wrap">
+        <div class="final-card reveal">
+          <div class="final-mini" aria-label="Ad and page to gap found">
+            <div class="flow final-flow">
+              <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Ad</span></div>
+              <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Page</span></div>
+              <div class="flow-step is-gap" style="--i:3"><span class="flow-dot">!</span><span>Gap found</span></div>
+            </div>
+          </div>
+          <h2 class="section-title">Send the ad. Send the page. I'll find the gap.</h2>
+          <p class="copy">If it leaks, I will show where trust breaks and rebuild the path in 48 hours.</p>
+          <div class="cta-row" aria-label="Contact options">
+            <a class="btn btn-primary js-whatsapp" href="#final-cta" aria-label="Start with a funnel diagnosis on WhatsApp">
+              Start with a funnel diagnosis
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vishnuvardhanreddy-chinnayeluka-77060a211/" target="_blank" rel="noopener" aria-label="Connect on LinkedIn">
+              LinkedIn
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a class="btn btn-secondary js-email" href="#final-cta" aria-label="Send an email">
+              Email
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </div>
+          <p class="microcopy">For D2C brands with traffic, clicks, and underperforming conversions.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var config = {
+        // Replace these two values before publishing.
+        whatsappNumber: "",
+        email: "",
+        whatsappText: "Hey Vishnu, I want you to find the gap in my funnel. Here is my ad and page.",
+        emailSubject: "Funnel Diagnosis",
+        emailBody: "Hey Vishnu, I want you to find the gap in my funnel."
+      };
+
+      var root = document.documentElement;
+      root.classList.remove("no-js");
+      root.classList.add("js");
+
+      requestAnimationFrame(function () {
+        root.classList.add("page-ready");
+      });
+
+      document.querySelectorAll('img[src="vishnu-photo.png"]').forEach(function (img) {
+        var markMissing = function () { img.classList.add("is-missing"); };
+        img.addEventListener("error", markMissing, { once: true });
+        if (img.complete && img.naturalWidth === 0) markMissing();
+      });
+
+      var whatsappHref = config.whatsappNumber
+        ? "https://wa.me/" + config.whatsappNumber + "?text=" + encodeURIComponent(config.whatsappText)
+        : "#final-cta";
+      var emailHref = config.email
+        ? "mailto:" + config.email + "?subject=" + encodeURIComponent(config.emailSubject) + "&body=" + encodeURIComponent(config.emailBody)
+        : "#final-cta";
+
+      document.querySelectorAll(".js-whatsapp").forEach(function (link) { link.href = whatsappHref; });
+      document.querySelectorAll(".js-email").forEach(function (link) { link.href = emailHref; });
+
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var revealItems = document.querySelectorAll(".reveal");
+      var flowItems = document.querySelectorAll(".flow, .route");
+
+      if (!("IntersectionObserver" in window) || reducedMotion) {
+        revealItems.forEach(function (item) { item.classList.add("is-visible"); });
+        flowItems.forEach(function (item) { item.classList.add("is-visible"); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.16, rootMargin: "0px 0px -7% 0px" });
+
+      revealItems.forEach(function (item) { observer.observe(item); });
+      flowItems.forEach(function (item) { observer.observe(item); });
+    })();
+  </script>
+</body>
+</html>
