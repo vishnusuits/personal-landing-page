@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Vishnu Gapcut Mark</title>
+  <desc id="desc">A bold V-shaped mark split by a red gap.</desc>
+  <defs>
+    <style>
+      .paper { fill: #fffefa; }
+      .ink { fill: #141412; }
+      .gap { fill: #e24a2f; }
+      .edge { fill: none; stroke: #dedbd1; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect class="paper" x="12" y="12" width="136" height="136" rx="26"/>
+  <rect class="edge" x="12" y="12" width="136" height="136" rx="26"/>
+  <path class="ink" d="M30 34h36l22 66-18 32L30 34Z"/>
+  <path class="ink" d="M130 34H94l-22 66 18 32 40-98Z"/>
+  <path class="gap" d="M81 39l19 14-32 68-19-14 32-68Z"/>
+</svg>
