@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vishnu Vardhan | Dental Implant Consultation Sprint</title>
+  <meta name="description" content="A 48-hour landing page sprint for dental implant and oral surgery practices that want more qualified consultation requests.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f6f6;
+      --surface: #fbfefd;
+      --surface-2: #e5efee;
+      --ink: #162021;
+      --muted: #5b6667;
+      --soft: #7b8587;
+      --line: #d4dedd;
+      --line-strong: #bcc8c7;
+      --accent: #0f766e;
+      --accent-dark: #115e59;
+      --green: #2f855a;
+      --blue: #2454b8;
+      --shadow: 0 18px 54px rgba(16, 34, 35, 0.09);
+      --shadow-tight: 0 10px 28px rgba(16, 34, 35, 0.08);
+      --shadow-hover: 0 22px 46px rgba(16, 34, 35, 0.12);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --max: 1120px;
+      --pad: clamp(1rem, 3vw, 1.75rem);
+      --radius: 8px;
+      --radius-sm: 6px;
+      --xs: 0.78rem;
+      --sm: clamp(0.9rem, 0.86rem + 0.16vw, 0.98rem);
+      --base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+      --lg: clamp(1.2rem, 1.06rem + 0.52vw, 1.44rem);
+      --xl: clamp(1.62rem, 1.2rem + 1.42vw, 2.45rem);
+      --hero: clamp(2.15rem, 1.3rem + 2.65vw, 3.85rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.45;
+      overflow-x: hidden;
+      background:
+        radial-gradient(620px 320px at 12% -8%, rgba(15, 118, 110, 0.09), transparent 72%),
+        radial-gradient(540px 300px at 88% 10%, rgba(36, 84, 184, 0.08), transparent 70%),
+        linear-gradient(90deg, rgba(22, 32, 33, 0.03) 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(180deg, #fcfffe 0%, var(--bg) 54%, #e8efef 100%);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - var(--pad) * 2));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(4rem, 6.4vw, 6rem) 0;
+    }
+
+    .section + .section { border-top: 1px solid rgba(20, 20, 18, 0.08); }
+
+    #proof {
+      padding-block: clamp(3.8rem, 5.4vw, 5.25rem);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--accent-dark);
+      font-size: var(--xs);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-family: "Space Grotesk", "DM Sans", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .hero-title {
+      max-width: 14.5ch;
+      margin: 0 0 0.95rem;
+      font-size: var(--hero);
+      line-height: 1.02;
+    }
+
+    .section-title {
+      max-width: 18ch;
+      margin: 0 0 1rem;
+      font-size: var(--xl);
+      line-height: 1.04;
+    }
+
+    .copy {
+      max-width: 48ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: var(--base);
+    }
+
+    .hero-copy > .copy { margin-bottom: 1.25rem; }
+
+    .hero-copy > .btn { margin-bottom: 1rem; }
+
+    .copy + .copy { margin-top: 0.55rem; }
+
+    .support {
+      max-width: 43ch;
+      margin: 1rem 0 1.45rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 700;
+      line-height: 1.18;
+      text-wrap: balance;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 0.78rem 1rem;
+      font-size: var(--sm);
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 140ms var(--ease-out), box-shadow 180ms var(--ease-out), background 140ms ease, border-color 140ms ease;
+      will-change: transform;
+    }
+
+    .btn svg { width: 0.95rem; height: 0.95rem; transition: transform 160ms var(--ease-out); }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-tight); }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn:active { transform: scale(0.97); }
+    .btn:focus-visible, .nav-link:focus-visible { outline: 3px solid rgba(226, 74, 47, 0.25); outline-offset: 3px; }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #24241f, var(--ink));
+      color: var(--surface);
+      box-shadow: 0 12px 24px rgba(20, 20, 18, 0.16);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn-secondary:hover { border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .btn-secondary-hover-dark {
+      transition: transform 140ms var(--ease-out), box-shadow 180ms var(--ease-out), background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+    }
+
+    .btn-secondary-hover-dark:hover {
+      background: #24241f;
+      border-color: #24241f;
+      color: var(--surface);
+      box-shadow: 0 12px 24px rgba(20, 20, 18, 0.16);
+    }
+
+    .section .wrap > .btn,
+    .two-col .btn,
+    .proof-copy > .btn {
+      margin-top: 1.35rem;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(20, 20, 18, 0.09);
+      background: rgba(246, 244, 239, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 44px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.05rem;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 700;
+      transition: color 140ms ease;
+    }
+
+    .nav-link:hover { color: var(--ink); }
+
+    .hero { padding-top: clamp(3.5rem, 5.8vw, 5rem); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.78fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .hero-lines span { display: block; }
+    .hero-lines span:last-child { color: var(--accent); }
+    .hero-lines span:first-child { color: #262520; }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.1rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 0.34rem 0.62rem;
+      background: rgba(255, 254, 250, 0.7);
+      color: var(--muted);
+      font-size: var(--xs);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .mobile-hero-proof {
+      display: none;
+    }
+
+    .diagnosis-panel {
+      position: relative;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 254, 250, 0.88);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-origin: center;
+    }
+
+    .diagnosis-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.55) 42%, transparent 58%);
+      transform: translateX(-120%);
+      opacity: 0;
+    }
+
+    .js.page-ready .diagnosis-panel::before {
+      animation: panelSweep 900ms var(--ease-out) 520ms both;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.88rem 0.95rem;
+      border-bottom: 1px solid var(--line);
+      font-size: var(--xs);
+      font-weight: 800;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(226, 74, 47, 0.12);
+      animation: statusPulse 2.4s ease-in-out infinite;
+    }
+
+    .panel-body { padding: clamp(1rem, 3vw, 1.35rem); }
+
+    .route {
+      display: grid;
+      gap: 0.72rem;
+    }
+
+    .route-item {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 58px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem;
+      background: var(--surface);
+      transform-origin: center;
+    }
+
+    .route-num {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      font-weight: 800;
+    }
+
+    .route-title { margin: 0; font-weight: 800; letter-spacing: -0.015em; }
+    .route-copy { margin: 0.12rem 0 0; color: var(--soft); font-size: var(--xs); font-weight: 700; }
+    .route-tag { color: var(--soft); font-size: var(--xs); font-weight: 800; }
+    .route-item.break { border-color: rgba(226, 74, 47, 0.4); background: #fff4f1; }
+    .route-item.break .route-num { background: var(--accent); color: white; }
+    .route-item.fixed { border-color: rgba(46, 125, 82, 0.28); background: #f0faf4; }
+    .route-item.fixed .route-num { background: var(--green); color: white; }
+
+    .panel-foot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      background: rgba(239, 238, 231, 0.55);
+    }
+
+    .panel-stat {
+      padding: 0.9rem;
+      border-right: 1px solid var(--line);
+    }
+
+    .panel-stat:last-child { border-right: 0; }
+    .panel-stat strong { display: block; font-family: "Space Grotesk", sans-serif; font-size: 1.4rem; line-height: 1; letter-spacing: -0.04em; }
+    .panel-stat span { display: block; margin-top: 0.24rem; color: var(--soft); font-size: var(--xs); font-weight: 800; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: clamp(1.7rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .problem-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1.15rem;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 800;
+    }
+
+    .problem-stack li {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.48rem 0.62rem;
+      background: rgba(255, 254, 250, 0.7);
+    }
+
+    .problem-stack .leak {
+      border-color: rgba(226, 74, 47, 0.35);
+      background: #fff4f1;
+      color: var(--accent-dark);
+    }
+
+    .kicker {
+      margin: 1.05rem 0 1.2rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 800;
+      line-height: 1.18;
+      text-wrap: balance;
+    }
+
+    .kicker span { display: block; }
+
+    .diagram-card, .diag-strip, .path-card, .final-mini {
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: clamp(1rem, 2.6vw, 1.35rem);
+      background: rgba(255, 254, 250, 0.8);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .diag-strip { margin-top: 1.35rem; }
+    .path-card { margin-top: 1.35rem; background: rgba(240, 250, 244, 0.72); }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .promise-card {
+      min-height: 126px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      background: var(--surface);
+    }
+
+    .promise-card span {
+      color: var(--soft);
+      font-size: var(--xs);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .promise-card strong {
+      color: var(--ink);
+      font-size: var(--base);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .promise-card.is-gap {
+      border-color: rgba(226, 74, 47, 0.36);
+      background: #fff4f1;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.65rem;
+      align-items: stretch;
+    }
+
+    .flow.final-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .flow-step {
+      position: relative;
+      display: grid;
+      align-content: space-between;
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.78rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 800;
+      transform-origin: center;
+    }
+
+    .flow-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .flow-step.is-gap { border-color: rgba(226, 74, 47, 0.36); background: #fff4f1; color: var(--accent-dark); }
+    .flow-step.is-gap .flow-dot { background: var(--accent); color: white; }
+    .flow-step.is-exit { opacity: 0.56; }
+    .flow.fixed .flow-step { border-color: rgba(46, 125, 82, 0.24); }
+    .flow.fixed .flow-dot { background: var(--green); color: white; }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.15rem;
+    }
+
+    .value-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: 1rem;
+      background: var(--surface);
+      box-shadow: 0 1px 0 rgba(20, 20, 18, 0.04);
+      color: var(--ink);
+      line-height: 1.18;
+      transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), border-color 180ms ease;
+    }
+
+    .value-card strong {
+      color: var(--ink);
+      font-size: var(--base);
+      font-weight: 800;
+      line-height: 1.12;
+    }
+
+    .value-card span {
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 600;
+      line-height: 1.28;
+    }
+
+    .value-card:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .proof-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+      gap: clamp(1.4rem, 3.2vw, 2.4rem);
+      align-items: start;
+    }
+
+    .proof-copy {
+      max-width: 760px;
+    }
+
+    .authority-card {
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-tight);
+      overflow: hidden;
+    }
+
+    .portrait-frame {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(226, 74, 47, 0.14), rgba(49, 95, 199, 0.12)),
+        var(--surface-2);
+    }
+
+    .portrait-frame::before {
+      content: "VV";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(20, 20, 18, 0.16);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(4rem, 9vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.08em;
+    }
+
+    .portrait-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .portrait-frame img.is-missing { display: none; }
+
+    .authority-body { padding: 0.9rem; }
+    .person-name { margin: 0; font-size: var(--lg); font-weight: 800; letter-spacing: -0.025em; }
+    .person-role { margin: 0.28rem 0 0; color: var(--muted); font-size: var(--sm); font-weight: 600; }
+
+    .experience-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.05rem;
+    }
+
+    .experience-list span {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.38rem 0.7rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: var(--xs);
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .authority-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.75rem; }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.15rem;
+    }
+
+    .metric {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid rgba(20, 20, 18, 0.1);
+      border-radius: var(--radius);
+      padding: 0.9rem;
+      background: var(--surface);
+      transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out), border-color 180ms ease;
+    }
+
+    .metric:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-tight); }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.88;
+    }
+
+    .metric span { color: var(--muted); font-size: var(--sm); font-weight: 800; line-height: 1.18; }
+
+    .case-line {
+      max-width: 44ch;
+      margin: 1.25rem 0 1.2rem;
+      color: var(--ink);
+      font-size: var(--lg);
+      font-weight: 800;
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    .final-card {
+      border: 1px solid rgba(20, 20, 18, 0.11);
+      border-radius: var(--radius);
+      padding: clamp(1.15rem, 4vw, 2.7rem);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .final-card .section-title { max-width: 20ch; margin-inline: auto; }
+    .final-card .copy { margin-inline: auto; }
+    .final-mini { width: min(100%, 560px); margin: 0 auto 1.35rem; background: #fff4f1; box-shadow: none; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.35rem;
+    }
+
+    .microcopy {
+      max-width: 50ch;
+      margin: 1rem auto 0;
+      color: var(--soft);
+      font-size: var(--sm);
+      font-weight: 700;
+    }
+
+    .reveal { opacity: 1; transform: none; }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(12px) scale(0.985);
+      transition: opacity 360ms ease, transform 420ms var(--ease-out);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+    .js .hero-reveal {
+      opacity: 0;
+      transform: translateY(10px) scale(0.99);
+      transition: opacity 420ms ease, transform 460ms var(--ease-out);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .js.page-ready .hero-reveal { opacity: 1; transform: translateY(0) scale(1); }
+
+    .js .flow-step, .js .route-item { transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease; }
+    .js .flow:not(.is-visible) .flow-step, .js .route:not(.is-visible) .route-item { opacity: 0; }
+    .js .flow-step:hover, .js .route-item:hover { transform: translateY(-2px) scale(1.01); box-shadow: var(--shadow-tight); }
+
+    .js .flow.is-visible .flow-step, .js .route.is-visible .route-item {
+      animation: stepIn 360ms var(--ease-out) both;
+      animation-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    .js .flow-step.is-gap .flow-dot, .js .route-item.break .route-num { animation: gapPulse 3.2s ease-in-out infinite; }
+
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes gapPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(226, 74, 47, 0); }
+      50% { box-shadow: 0 0 0 6px rgba(226, 74, 47, 0.14); }
+    }
+
+    @keyframes panelSweep {
+      0% { opacity: 0; transform: translateX(-120%); }
+      18% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(120%); }
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 4px rgba(226, 74, 47, 0.12); }
+      50% { transform: scale(0.92); box-shadow: 0 0 0 7px rgba(226, 74, 47, 0.08); }
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid, .two-col, .proof-top { grid-template-columns: 1fr; }
+      .diagnosis-panel, .authority-card { max-width: 560px; }
+      .portrait-frame { min-height: 240px; }
+      .value-grid, .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .proof-copy { max-width: 100%; }
+    }
+
+    @media (max-width: 720px) {
+      html { scroll-padding-top: 68px; }
+      body { overflow-x: hidden; }
+      .wrap { width: min(var(--max), calc(100% - 1.5rem)); }
+
+      /* Topbar — keep CTA visible but compact */
+      .nav { min-height: 60px; gap: 0.6rem; }
+      .brand img { width: 38px; }
+      .nav-link { display: none; }
+      .nav-links { width: auto; gap: 0.5rem; justify-content: flex-end; }
+      .topbar .btn {
+        min-height: 40px;
+        padding: 0.55rem 0.85rem;
+        font-size: 0.78rem;
+        gap: 0.4rem;
+      }
+      .topbar .btn svg { width: 0.78rem; height: 0.78rem; }
+
+      /* Section rhythm */
+      .section { padding: 3.5rem 0; }
+      .section + .section { border-top-color: rgba(20, 20, 18, 0.06); }
+      #proof { padding-block: 3.5rem; }
+
+      /* Hero */
+      .hero { padding-top: 2.6rem; }
+      .hero-grid { gap: 1.75rem; }
+      .two-col, .proof-top { gap: 1.85rem; }
+      #problem .two-col { gap: 1.5rem; align-items: flex-start; }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.35rem;
+      }
+      .hero-copy > * { margin: 0; }
+      .hero-lines span { display: block; }
+      .hero-title {
+        max-width: 14ch;
+        font-size: clamp(2.05rem, 7.6vw, 2.4rem);
+        line-height: 1.04;
+        text-wrap: balance;
+      }
+      .section-title {
+        max-width: 18ch;
+        font-size: clamp(1.55rem, 6.4vw, 2rem);
+        line-height: 1.08;
+      }
+      .copy { max-width: 100%; font-size: 1rem; line-height: 1.5; }
+      .eyebrow { margin-bottom: 0; }
+
+      /* Mobile credentials card — placed below copy, above CTA */
+      .mobile-hero-proof {
+        order: 3;
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        align-items: center;
+        gap: 0.85rem;
+        width: 100%;
+        padding: 0.75rem 0.85rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-tight);
+      }
+      .mobile-hero-proof img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+      }
+      .mobile-hero-proof img.is-missing { display: none; }
+      .mobile-proof-copy { min-width: 0; }
+      .mobile-proof-copy strong {
+        font-size: 0.98rem;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+      .proof-name-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+      .proof-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.22rem 0.5rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        background: var(--surface-2);
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-copy .js-whatsapp {
+        order: 4;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .hero-copy .chip-row {
+        order: 5;
+        gap: 0.45rem;
+        margin-top: 0.1rem;
+      }
+      .chip { min-height: 28px; padding: 0.32rem 0.6rem; white-space: normal; }
+
+      /* Section CTAs — full width, clear primary action */
+      .section .wrap > .btn,
+      .two-col .btn,
+      .proof-copy > .btn {
+        margin-top: 1.25rem;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .section .btn, .final-card .btn { min-height: 46px; }
+
+      /* Problem section — keep diagram as a proper card */
+      #problem .reveal:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      #problem .reveal:first-child .btn { order: 4; margin-top: 1rem; }
+      #problem .diagram-card {
+        order: 2;
+        margin-top: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 0.95rem;
+        background: rgba(255, 254, 250, 0.85);
+        box-shadow: var(--shadow-tight);
+      }
+
+      /* Flow — proper 2-col card grid on mobile (not naked left-border list) */
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+      }
+      .flow.final-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .flow-step {
+        min-height: 106px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr;
+        align-content: space-between;
+        gap: 0.65rem;
+        padding: 0.9rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        background: var(--surface);
+        box-shadow: 0 1px 0 rgba(20, 20, 18, 0.03);
+      }
+      .flow-dot { width: 32px; height: 32px; font-size: 0.9rem; }
+      .flow-step.is-gap {
+        border-color: rgba(226, 74, 47, 0.36);
+        background: #fff4f1;
+        color: var(--accent-dark);
+      }
+      .flow-step.is-gap .flow-dot { background: var(--accent); color: white; }
+      .flow-step.is-exit { opacity: 0.6; }
+      .flow.fixed .flow-step { border-color: rgba(46, 125, 82, 0.24); }
+      .flow.fixed .flow-dot { background: var(--green); color: white; }
+
+      /* Gap section — keep diag-strip as a visible card container */
+      .diag-strip {
+        margin-top: 1.25rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1rem;
+        background: rgba(255, 254, 250, 0.85);
+        box-shadow: var(--shadow-tight);
+      }
+      .promise-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+      .promise-card {
+        min-height: auto;
+        gap: 0.5rem;
+        padding: 1.05rem 1.1rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-tight);
+      }
+      .promise-card.is-gap {
+        border-color: rgba(226, 74, 47, 0.36);
+        background: #fff4f1;
+      }
+      .promise-card strong { font-size: 1rem; line-height: 1.28; }
+
+      /* Sprint section — hide path-card on mobile */
+      #sprint .path-card { display: none; }
+
+      .value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+        margin-top: 1rem;
+        counter-reset: valuecard;
+      }
+      .value-card {
+        position: relative;
+        min-height: 148px;
+        gap: 0.5rem;
+        padding: 1.1rem 1rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: 0 1px 0 rgba(20, 20, 18, 0.04);
+        counter-increment: valuecard;
+      }
+      .value-card::before {
+        content: counter(valuecard);
+        display: grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        margin-bottom: 0.45rem;
+        border-radius: var(--radius-sm);
+        background: var(--green);
+        color: white;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .value-card strong { font-size: 0.96rem; }
+      .value-card span { font-size: 0.84rem; line-height: 1.32; }
+
+      /* Proof — metrics + authority card both keep visual weight */
+      .metrics-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.65rem;
+        margin-top: 1.25rem;
+      }
+      .metric {
+        min-height: 110px;
+        gap: 0.55rem;
+        padding: 0.9rem 0.75rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-tight);
+      }
+      .metric strong { font-size: clamp(1.45rem, 5.6vw, 1.95rem); }
+      .metric span { font-size: 0.78rem; line-height: 1.24; }
+      .case-line { margin: 1.35rem 0; font-size: 1.08rem; }
+
+      .authority-card {
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        align-items: stretch;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        box-shadow: var(--shadow-tight);
+        overflow: hidden;
+      }
+      .portrait-frame {
+        display: block;
+        min-height: 100%;
+        border-right: 1px solid var(--line);
+      }
+      .portrait-frame::before { font-size: 2rem; }
+      .authority-body { padding: 0.85rem 0.95rem; }
+      .person-name { font-size: 1.05rem; }
+      .person-role { font-size: 0.86rem; line-height: 1.32; }
+      .experience-list { gap: 0.4rem; margin-top: 0.7rem; }
+      .experience-list span {
+        min-height: 30px;
+        padding: 0.3rem 0.55rem;
+        font-size: 0.7rem;
+        white-space: normal;
+      }
+
+      /* Final CTA — keep the card, lock everything to center */
+      .final-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.6rem 1.15rem 1.4rem;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .final-card .section-title,
+      .final-card .copy,
+      .final-card .microcopy {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .final-card .section-title { max-width: 18ch; }
+      .final-card .copy { max-width: 32ch; }
+      .final-card .microcopy { max-width: 32ch; }
+      .final-mini {
+        display: block;
+        width: 100%;
+        margin: 0 auto 1.25rem;
+        padding: 0.7rem;
+        background: #fff4f1;
+        border: 1px solid rgba(226, 74, 47, 0.18);
+        border-radius: var(--radius-sm);
+        box-shadow: none;
+      }
+      .final-mini .flow.final-flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+      }
+      .final-mini .flow-step {
+        min-height: 64px;
+        padding: 0.55rem;
+        gap: 0.35rem;
+        text-align: left;
+      }
+      .final-mini .flow-dot { width: 26px; height: 26px; font-size: 0.78rem; }
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.55rem;
+        margin-top: 1.25rem;
+      }
+      .cta-row .btn { width: 100%; justify-content: center; gap: 0.6rem; }
+      .microcopy { margin-top: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(var(--max), calc(100% - 1.25rem)); }
+      .section { padding: 2.85rem 0; }
+      #proof { padding-block: 2.85rem; }
+      .hero { padding-top: 2rem; }
+      .hero-title { font-size: clamp(1.85rem, 8.2vw, 2.25rem); }
+      .section-title { font-size: clamp(1.42rem, 6.8vw, 1.88rem); }
+      .diagnosis-panel { display: none; }
+
+      /* Slightly tighter mobile proof card on smallest screens */
+      .mobile-hero-proof {
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 0.7rem;
+        padding: 0.7rem 0.8rem;
+      }
+      .mobile-hero-proof img { width: 52px; height: 52px; }
+
+      /* Topbar CTA — abbreviated label */
+      .topbar .btn {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* Flow grids on small screens */
+      .flow-step { min-height: 96px; padding: 0.8rem 0.75rem; }
+
+      /* Value grid stays 2-col but on very small phones go 1 */
+      .value-grid { gap: 0.55rem; }
+
+      /* Metrics — keep 3 cols, all equal */
+      .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+      .metrics-grid .metric:last-child { grid-column: auto; }
+
+      /* Authority card — keep horizontal, just tighten */
+      .authority-card { grid-template-columns: 84px minmax(0, 1fr); }
+
+      /* Hero diagnosis panel footer stacks on narrow */
+      .panel-foot { grid-template-columns: 1fr; }
+      .panel-stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .panel-stat:last-child { border-bottom: 0; }
+
+      /* Problem stack — 2 cols, leak full width */
+      .problem-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
+      .problem-stack li { min-height: 38px; display: flex; align-items: center; padding: 0.42rem 0.55rem; }
+      .problem-stack .leak { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 400px) {
+      .value-grid { grid-template-columns: 1fr; }
+      .topbar .btn { max-width: 130px; font-size: 0.74rem; padding: 0.5rem 0.7rem; }
+      .brand img { width: 34px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Primary navigation">
+      <a class="brand" href="#hero" aria-label="Vishnu Vardhan home">
+        <img src="assets/logo/v2/vishnu-gapcut-mark.svg" alt="Vishnu Vardhan">
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#problem">Problem</a>
+        <a class="nav-link" href="#gap">Trust Gap</a>
+        <a class="nav-link" href="#sprint">Sprint</a>
+        <a class="nav-link" href="#proof">Proof</a>
+        <a class="btn btn-primary js-whatsapp" href="#final-cta" aria-label="Find the leak in my patient path on WhatsApp">
+          Find the leak
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="section hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-reveal" style="--delay:40ms">For dental implant and oral surgery practices</p>
+          <h1 class="hero-title hero-reveal" style="--delay:110ms">
+            <span class="hero-lines">
+              <span>Your clinic earned the visit,</span>
+              <span>your page lost the consult.</span>
+            </span>
+          </h1>
+          <p class="copy hero-reveal" style="--delay:190ms">Implant and oral surgery patients arrive with fear, urgency, and questions. Generic service pages turn that intent into hesitation.</p>
+          <a class="btn btn-primary hero-reveal js-whatsapp" style="--delay:260ms" href="#final-cta" aria-label="Find the leak in my patient path on WhatsApp">
+            Find the leak in my patient path
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <div class="chip-row hero-reveal" style="--delay:320ms" aria-label="Proof highlights">
+            <span class="chip">48-hour sprint</span>
+            <span class="chip">Dental + hospital background</span>
+            <span class="chip">Paid healthcare funnel proof</span>
+          </div>
+        </div>
+
+        <aside class="diagnosis-panel hero-reveal" style="--delay:230ms" aria-label="Patient path diagnosis preview">
+          <div class="panel-head"><span>Diagnosis preview</span><span class="status-dot" aria-hidden="true"></span></div>
+          <div class="panel-body">
+            <div class="route is-visible" aria-label="Visit to consultation path">
+              <div class="route-item" style="--i:1">
+                <span class="route-num">1</span>
+                <div><p class="route-title">Search / referral</p><p class="route-copy">High-intent visit</p></div>
+                <span class="route-tag">Visit</span>
+              </div>
+              <div class="route-item break" style="--i:2">
+                <span class="route-num">!</span>
+                <div><p class="route-title">Service page</p><p class="route-copy">Generic and trust-light</p></div>
+                <span class="route-tag">Leak</span>
+              </div>
+              <div class="route-item fixed" style="--i:3">
+                <span class="route-num">3</span>
+                <div><p class="route-title">Consultation</p><p class="route-copy">Clear next step</p></div>
+                <span class="route-tag">Booked</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-foot" aria-label="Proof metrics">
+            <div class="panel-stat"><strong>48h</strong><span>turnaround</span></div>
+            <div class="panel-stat"><strong>57%</strong><span>CPL drop</span></div>
+            <div class="panel-stat"><strong>4.2x</strong><span>CVR lift</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="wrap two-col">
+        <div class="reveal">
+          <h2 class="section-title">Your implant page has to earn the consult.</h2>
+          <ul class="problem-stack" aria-label="Common implant page trust gaps">
+            <li>Doctor proof too low</li>
+            <li>No cost path</li>
+            <li>Generic treatment copy</li>
+            <li>Weak proof</li>
+            <li class="leak">Patient still unsure</li>
+          </ul>
+          <p class="copy">Implant patients are not shopping for another ad. They are deciding whether they can trust the doctor, understand the treatment, and take the next step without feeling pushed.</p>
+          <a class="btn btn-primary js-whatsapp" href="#final-cta" aria-label="Audit my implant page on WhatsApp">
+            Audit my implant page
+            <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+        </div>
+
+        <div class="diagram-card reveal" style="--delay:100ms" aria-label="Implant patient trust journey">
+          <div class="flow broken">
+            <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Finds you</span></div>
+            <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Checks trust</span></div>
+            <div class="flow-step is-gap" style="--i:3"><span class="flow-dot">!</span><span>Questions</span></div>
+            <div class="flow-step is-exit" style="--i:4"><span class="flow-dot">4</span><span>Leaves</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gap" class="section">
+      <div class="wrap">
+        <div class="reveal">
+          <h2 class="section-title">Patients leave when the trust test fails.</h2>
+        </div>
+        <div class="diag-strip reveal" style="--delay:120ms" aria-label="Patient expectation mismatch">
+          <div class="promise-grid">
+            <article class="promise-card">
+              <span>Patient expects</span>
+              <strong>Clear treatment options, cost path, and who is performing the procedure.</strong>
+            </article>
+            <article class="promise-card">
+              <span>Your page gives</span>
+              <strong>Generic dental language, weak proof, and no obvious next step.</strong>
+            </article>
+            <article class="promise-card is-gap">
+              <span>Patient thinks</span>
+              <strong>"Too risky. Too unclear. I'll keep looking."</strong>
+            </article>
+          </div>
+        </div>
+        <a class="btn btn-primary reveal js-whatsapp" style="--delay:210ms" href="#final-cta" aria-label="Fix the trust gap on WhatsApp">
+          Fix the trust gap
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="sprint" class="section">
+      <div class="wrap">
+        <div class="reveal">
+          <h2 class="section-title">Start with the free diagnosis, then fix the leak.</h2>
+        </div>
+        <div class="path-card reveal" style="--delay:100ms" aria-label="Fixed patient path">
+          <div class="flow fixed">
+            <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Intent</span></div>
+            <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Trust</span></div>
+            <div class="flow-step" style="--i:3"><span class="flow-dot">3</span><span>Page</span></div>
+            <div class="flow-step" style="--i:4"><span class="flow-dot">4</span><span>Consult</span></div>
+          </div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal" style="--delay:40ms"><strong>Free leak diagnosis</strong><span>I point out the 3 biggest trust and conversion leaks on your implant or oral surgery page.</span></article>
+          <article class="value-card reveal" style="--delay:90ms"><strong>Short Loom teardown</strong><span>You see exactly where patients hesitate, what feels risky, and what the page is not answering.</span></article>
+          <article class="value-card reveal" style="--delay:140ms"><strong>Clear rebuild direction</strong><span>If the page needs work, I show the structure I would use to push more consultation requests.</span></article>
+          <article class="value-card reveal" style="--delay:190ms"><strong>Focused page build</strong><span>If you want it fixed, I turn that diagnosis into one cleaner, consultation-focused service page.</span></article>
+        </div>
+        <a class="btn btn-primary reveal js-whatsapp" style="--delay:240ms; margin-top:1.35rem" href="#final-cta" aria-label="Get my free leak diagnosis on WhatsApp">
+          Get my free leak diagnosis
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="wrap">
+        <div class="proof-top">
+          <div class="proof-copy reveal">
+            <h2 class="section-title">Healthcare funnel thinking, not brochure websites.</h2>
+            <p class="copy">I look at treatment intent, patient doubt, page flow, and booking friction. The page has to calm fear and make the next step obvious.</p>
+
+            <div class="metrics-grid" aria-label="Performance proof metrics">
+              <article class="metric reveal" style="--delay:30ms"><strong>57%</strong><span>CPL drop</span></article>
+              <article class="metric reveal" style="--delay:70ms"><strong>4.2x</strong><span>CVR lift</span></article>
+              <article class="metric reveal" style="--delay:110ms"><strong>3,549</strong><span>leads</span></article>
+            </div>
+
+            <p class="case-line reveal" style="--delay:280ms">₹2,403 CPL -> ₹1,132 after fixing the trust path inside a paid healthcare funnel.</p>
+            <a class="btn btn-primary reveal js-whatsapp" style="--delay:320ms" href="#final-cta" aria-label="See what I would fix on WhatsApp">
+              See what I would fix
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </div>
+
+          <aside class="authority-card reveal" style="--delay:120ms" aria-label="Vishnu Vardhan authority card">
+            <div class="portrait-frame"><img src="vishnu-photo.png" alt="Vishnu Vardhan"></div>
+            <div class="authority-body">
+              <p class="person-name">Vishnu Vardhan</p>
+              <p class="person-role">Landing pages and consultation flows for dental implant and oral surgery practices.</p>
+              <div class="experience-list" aria-label="Experience highlights">
+                <span>Hospital + dental background</span>
+                <span>₹20.9L ad spend experience</span>
+                <span>Paid healthcare funnels</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="final-cta" class="section">
+      <div class="wrap">
+        <div class="final-card reveal">
+          <div class="final-mini" aria-label="Ad and page to gap found">
+            <div class="flow final-flow">
+              <div class="flow-step" style="--i:1"><span class="flow-dot">1</span><span>Intent</span></div>
+              <div class="flow-step" style="--i:2"><span class="flow-dot">2</span><span>Page</span></div>
+              <div class="flow-step is-gap" style="--i:3"><span class="flow-dot">!</span><span>Leak found</span></div>
+            </div>
+          </div>
+          <h2 class="section-title">Send the page. I'll show you where it is leaking consults for free.</h2>
+          <p class="copy">You send the implant or oral surgery page. I send back a short leak diagnosis showing where trust breaks, what is causing hesitation, and what should change first.</p>
+          <div class="cta-row" aria-label="Contact options">
+            <a class="btn btn-primary js-whatsapp" href="#final-cta" aria-label="Get a free page leak diagnosis on WhatsApp">
+              Get a free page leak diagnosis
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a class="btn btn-secondary" href="https://x.com/vishnuv_786" target="_blank" rel="noopener" aria-label="Connect on X">
+              X
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a class="btn btn-secondary js-email" href="#final-cta" aria-label="Send an email">
+              Email
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.2 7h8.5M7.8 3.4 11.4 7l-3.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </div>
+          <p class="microcopy">Best for implant clinics, full-mouth restoration practices, and oral surgery offices with service pages that feel generic, weak on trust, or unclear on the next step.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var config = {
+        whatsappNumber: "918328417230",
+        email: "vishnusuits@gmail.com",
+        whatsappText: "Hey Vishnu, I want the free leak diagnosis for my dental implant or oral surgery page. Here is my current page: ",
+        emailSubject: "Free Dental Page Leak Diagnosis",
+        emailBody: "Hey Vishnu, I want the free leak diagnosis for my dental implant or oral surgery page. Here is my current page:"
+      };
+
+      var root = document.documentElement;
+      root.classList.remove("no-js");
+      root.classList.add("js");
+
+      requestAnimationFrame(function () {
+        root.classList.add("page-ready");
+      });
+
+      document.querySelectorAll('img[src="vishnu-photo.png"]').forEach(function (img) {
+        var markMissing = function () { img.classList.add("is-missing"); };
+        img.addEventListener("error", markMissing, { once: true });
+        if (img.complete && img.naturalWidth === 0) markMissing();
+      });
+
+      var whatsappHref = config.whatsappNumber
+        ? "https://wa.me/" + config.whatsappNumber + "?text=" + encodeURIComponent(config.whatsappText)
+        : "#final-cta";
+      var emailHref = config.email
+        ? "mailto:" + config.email + "?subject=" + encodeURIComponent(config.emailSubject) + "&body=" + encodeURIComponent(config.emailBody)
+        : "#final-cta";
+
+      document.querySelectorAll(".js-whatsapp").forEach(function (link) { link.href = whatsappHref; });
+      document.querySelectorAll(".js-email").forEach(function (link) { link.href = emailHref; });
+
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var revealItems = document.querySelectorAll(".reveal");
+      var flowItems = document.querySelectorAll(".flow, .route");
+
+      if (!("IntersectionObserver" in window) || reducedMotion) {
+        revealItems.forEach(function (item) { item.classList.add("is-visible"); });
+        flowItems.forEach(function (item) { item.classList.add("is-visible"); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.16, rootMargin: "0px 0px -7% 0px" });
+
+      revealItems.forEach(function (item) { observer.observe(item); });
+      flowItems.forEach(function (item) { observer.observe(item); });
+    })();
+  </script>
+</body>
+</html>
